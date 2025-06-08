@@ -1,11 +1,13 @@
 package com.task.bank;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class MainMethod {
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args)  {
 		
 		Scanner sc=new Scanner(System.in);
 		
@@ -24,13 +26,26 @@ public class MainMethod {
 //	     al.insert(a, b, a, d, e);
 			
 		System.out.println("List of all the Account ");
-		 System.out.println(al.listacount());
-	
+		 try {
+			System.out.println(al.listacount());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 		 System.out.println("Enter the Account No you want to see");
 		 int num=sc.nextInt();
 		 
-		System.out.println(al.perticularData(num));
+		try {
+			System.out.println(al.perticularData(num));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 
 	}
 
